@@ -1,24 +1,10 @@
 # README
+se agrega paginación con gema kaminari 
+        cambios en gem file linea 63
+        cambios en tweets controller en metodo def 
+        cambio en index de tweets para terminar paginación
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+se cambia noticia de registro e inicio de sesion exitoso por bienvenidos 
+    ruta config/locales/devise.en.yml
+    linea 41 y 49
