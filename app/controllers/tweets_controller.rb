@@ -11,9 +11,15 @@ class TweetsController < ApplicationController
     redirect_to root_path, alert: 'no es posible hacer retweet' and return if @tweet.user == current_user
     retweeted = Tweet.new(content: @tweet.content)
     retweeted.user = current_user
-    @tweet_original = @tweet.id
+    retweeted.rt_ref = @tweet.id
     if retweeted.save
-      @tweet.update(retweet: @tweet.retweet += 1)
+      if @tweet.retweet.nil?
+        @tweet.update(retweet: @tweet.retweet = 1)  
+      else
+        
+        @tweet.update(retweet: @tweet.retweet += 1)
+      end
+      
       redirect_to root_path, notice: 'retweet ingresado con exito'
     else
       redirect_to root_path, alert: 'no es posible hacer retweet'
@@ -24,7 +30,7 @@ class TweetsController < ApplicationController
   def show
     
   end
-
+  
   # GET /tweets/new
   def new
     @tweet = Tweet.new
