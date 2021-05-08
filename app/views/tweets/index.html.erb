@@ -27,7 +27,7 @@
           <td><%= tweet.rt_ref %></td>
           <td><%= tweet.retweet %></td>
           <td><%= tweet.likes.count %></td>
-          <td><%= time_ago_in_words(tweet.created_at) %></td>
+          <td><%= link_to time_ago_in_words(tweet.created_at),tweet %></td>
         </tr>
         <tr>
           <td><%= link_to 'Show', tweet %></td>
@@ -37,7 +37,7 @@
             <td><%= link_to "#{tweet.user.user_name} ha retweet...", tweet.retweet_ref  %></td>
           <% end %>
           <td><%= link_to retweet_tweet_path(tweet), data: { confirm: 'do you want to retweet'}, method: :post do %>
-          
+
           <i class="fas fa-retweet fa-3x"></i>
           <% end %>
           </td>
