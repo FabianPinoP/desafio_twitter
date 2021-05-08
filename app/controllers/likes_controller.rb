@@ -4,7 +4,7 @@ class LikesController < ApplicationController
 
   def create
     if existing_like?
-      flash[:notice] = 'ya le diste like'
+      flash[:notice] = 'you already did you liked'
     else
       @tweet.likes.create(user_id: current_user.id)
     end
@@ -15,7 +15,8 @@ class LikesController < ApplicationController
     if existing_like?
       @like.destroy
     else
-      flash[:notice] = 'no tienes likes'
+      flash[:notice] = 'you don t have likes'
+      
     end
       redirect_to root_path
   end
