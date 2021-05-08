@@ -3,13 +3,15 @@ class TweetsController < ApplicationController
 
   # GET /tweets or /tweets.json
   def index
-    @tweets = Tweet.all.page(params[:page])
+    @tweet = Tweet.new
+    @tweets = Tweet.all.order("created_at DESC").page(params[:page])
   end
 
   def retweet
     redirect_to root_path, alert: 'no es posible hacer retweet' and return if @tweet.user == current_user
     retweeted = Tweet.new(content: @tweet.content)
     retweeted.user = current_user
+    @tweet_original = @tweet.id
     if retweeted.save
       @tweet.update(retweet: @tweet.retweet += 1)
       redirect_to root_path, notice: 'retweet ingresado con exito'
@@ -38,8 +40,8 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to @tweet, notice: "Tweet was successfully created." }
-        format.json { render :show, status: :created, location: @tweet }
+        format.html { redirect_to root_path, notice: "Tweet was successfully created." }
+        
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @tweet.errors, status: :unprocessable_entity }

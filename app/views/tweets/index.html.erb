@@ -1,3 +1,8 @@
+
+<% if signed_in? %>
+  <%= render 'form', tweet: @tweet %>
+<% end %>
+
 <div class="container">
   <h1>Tweets<i class="fab fa-twitter"></i></h1>
   <table class="table">
