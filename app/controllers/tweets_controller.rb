@@ -1,9 +1,21 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: %i[ show edit update destroy ]
+  before_action :set_tweet, only: %i[ show edit update destroy retweet]
 
   # GET /tweets or /tweets.json
   def index
     @tweets = Tweet.all.page(params[:page])
+  end
+
+  def retweet
+    redirect_to root_path, alert: 'no es posible hacer retweet' and return if @tweet.user == current_user
+    retweeted = Tweet.new(content: @tweet.content)
+    retweeted.user = current_user
+    if retweeted.save
+      @tweet.update(retweet: @tweet.retweet += 1)
+      redirect_to root_path, notice: 'retweet ingresado con exito'
+    else
+      redirect_to root_path, alert: 'no es posible hacer retweet'
+    end 
   end
 
   # GET /tweets/1 or /tweets/1.json
