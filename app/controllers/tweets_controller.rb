@@ -3,8 +3,9 @@ class TweetsController < ApplicationController
 
   # GET /tweets or /tweets.json
   def index
+    @q = Tweet.ransack(params[:q])
     @tweet = Tweet.new
-    @tweets = Tweet.all.order("created_at DESC").page(params[:page])
+    @tweets = @q.result(distinct: true).order("created_at DESC").page(params[:page]).per(50)
   end
 
   def retweet
