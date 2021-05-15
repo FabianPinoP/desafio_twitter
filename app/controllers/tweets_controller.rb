@@ -5,7 +5,11 @@ class TweetsController < ApplicationController
   def index
     @q = Tweet.ransack(params[:q])
     @tweet = Tweet.new
-    @tweets = @q.result(distinct: true).order("created_at DESC").page(params[:page]).per(50)
+    if signed_in?
+      @tweets = User.tweets_for_me(current_user).page(params[:page]).per(50)
+    else
+      @tweets = @q.result(distinct: true).order("created_at DESC").page(params[:page]).per(50)
+    end
   end
 
   def retweet
@@ -77,7 +81,7 @@ class TweetsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+ 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tweet
