@@ -5,11 +5,11 @@ class TweetsController < ApplicationController
   def index
     @q = Tweet.ransack(params[:q])
     @tweet = Tweet.new
-    if signed_in?
-      @tweets = User.tweets_for_me(current_user).page(params[:page]).per(50)
-    else
+    #if signed_in?
+      #@tweets = User.tweets_for_me(current_user).page(params[:page]).per(50)
+    #else
       @tweets = @q.result(distinct: true).order("created_at DESC").page(params[:page]).per(50)
-    end
+    #end
   end
 
   def retweet
