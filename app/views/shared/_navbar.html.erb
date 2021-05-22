@@ -11,6 +11,7 @@
             <li><%= button_to 'Registrarse', new_user_registration_path, method: :get, :class => 'btn btn-primary mx-4' %></li>
         <% end %>
         <li><%= button_to 'My Friends', friends_path, method: :get, :class => 'btn btn-primary mx-4' %></li>
+        <li><%= button_to 'My Profile', edit_user_registration_path, method: :get, :class => 'btn btn-primary mx-4' %></li>
     </ul>
     <% if user_signed_in?  %>
         <div class="container-fluid">
