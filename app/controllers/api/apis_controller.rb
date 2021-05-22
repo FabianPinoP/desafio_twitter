@@ -21,7 +21,7 @@ class Api::ApisController < ApplicationController
     def show
     end
     def create
-        @tweet = Tweet.new(content: params[:content])
+        @tweet = Tweet.new(content: params[:content], user_id: params[:user_id])
         if @tweet.save
             render json: @tweet, status: :created
         else

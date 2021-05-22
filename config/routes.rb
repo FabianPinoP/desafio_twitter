@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     root "tweets#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/api/news', to: 'api/apis#index'
-  get "/api/:fecha1/:fecha2", to: 'api/apis#date'
+  get "/api/:date1/:date2", to: 'api/apis#date'
   post '/api/create', to: 'api/apis#create'
   get 'search', to: 'search#index'
   get 'friends', to: 'friends#index'
