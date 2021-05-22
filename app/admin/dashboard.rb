@@ -27,8 +27,6 @@ ActiveAdmin.register_page "Dashboard" do
     #       para "Welcome to ActiveAdmin."
     #     end
     #   end
-    # end
-    
-  end 
-   
+    # end    
+  end   
 end
