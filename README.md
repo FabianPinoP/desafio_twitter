@@ -9,3 +9,5 @@ Para iniciar sesion como administrador visitar https://radiant-headland-62904.he
 Para revisar api visitar https://radiant-headland-62904.herokuapp.com/api/news
 
 Para revisar api por fecha ejemplo https://radiant-headland-62904.herokuapp.com/api/date1/date2
+
+para ver solo a mis amigos pinchar en boton friends ubicado en navbar
