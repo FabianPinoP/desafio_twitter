@@ -64,6 +64,7 @@
     </div> 
     
   <% end %>
+  <%= button_to "Back", tweets_path,  :class => "inbox-sf-add-btn tip", :method => :get %>
   <%= paginate @tweets%>
   <%= link_to_next_page @tweets, 'Show More Tweets' %>
   <%= link_to_prev_page @tweets, 'Show Previous Tweets' %>
