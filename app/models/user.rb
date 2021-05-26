@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  has_many :likes
   has_many :friends
   scope :tweets_for_me, ->(user) { Tweet.where(user_id: user.friends.pluck(:friend_id).uniq) }
   # Include default devise modules. Others available are:

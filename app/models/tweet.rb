@@ -1,5 +1,4 @@
 class Tweet < ApplicationRecord
-    #include ActionView::Helpers::UrlHelper
     belongs_to :user
     has_many :likes, dependent: :destroy
     has_many :tweet_hash_tags
@@ -21,7 +20,5 @@ class Tweet < ApplicationRecord
         Tweet.find(self.rt_ref)
     end
 
-    def tweets(user)
-        
-    end
+    
 end

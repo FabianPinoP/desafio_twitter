@@ -3,9 +3,9 @@ class FriendsController < ApplicationController
         @q = Tweet.ransack(params[:q])
         @tweet = Tweet.new
         if signed_in?
-        @tweets = User.tweets_for_me(current_user).page(params[:page]).per(50)
+            @tweets = User.tweets_for_me(current_user).page(params[:page]).per(50)
         else
-        redirect_to root_path, notice: "you must log in"
+            redirect_to root_path, notice: "you must log in"
         end
     end
     
