@@ -56,7 +56,7 @@
         <% end %> 
       </div>
       <section id="all-links"  align="left">
-        <% if  user_signed_in? %>
+        <% if  user_signed_in? && tweet.user != current_user %>
           <% if pre_follow(tweet.user) %>
               <h5><%= link_to "Unfollow", unfollow_user_path(tweet.user.id), method: :delete %></h5>
           <% else %>
