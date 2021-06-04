@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_21_151218) do
+ActiveRecord::Schema.define(version: 2021_06_04_215551) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_151218) do
     t.integer "user_id"
     t.integer "retweet"
     t.integer "rt_ref"
+    t.string "image"
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
