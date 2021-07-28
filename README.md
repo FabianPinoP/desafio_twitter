@@ -13,3 +13,5 @@ Para revisar api por fecha ejemplo https://radiant-headland-62904.herokuapp.com/
 Para ver solo a mis amigos pinchar en boton friends ubicado en navbar
 
 Para ingresar tweets desde postman agregar basic authentication name: desafio, password: latam  (usar campos content y user_id)
+
+En el momento de realizar un registro debe tener instalado mailcatcher en local no agregar a su gemfile ya que puede entrar en conflicto con las demas gemas. 
